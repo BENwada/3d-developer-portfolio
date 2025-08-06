@@ -1,9 +1,11 @@
 import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
 
 const App = () => {
   return (
     <>
-      <Header></Header>
+      <Header />
+      <HeroSection />
     </>
   );
 };
