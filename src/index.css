@@ -1,13 +1,143 @@
 @import "tailwindcss";
 
+/* カスタムプロパティ（HSL値で定義） */
+:root {
+  --border: 220 14% 96%;
+  --input: 220 14% 96%;
+  --ring: 240 5% 64%;
+  --background: 0 0% 0%;
+  --foreground: 240 10% 3.9%;
+
+  --primary: 262 83% 58%;
+  --primary-foreground: 210 20% 98%;
+
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 20% 98%;
+
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+}
+
+/* Tailwind にテーマ変数を認識させる */
+@theme inline {
+  color: {
+    border: hsl(var(--border));
+    input: hsl(var(--input));
+    ring: hsl(var(--ring));
+    background: hsl(var(--background));
+    foreground: hsl(var(--foreground));
+
+    primary: hsl(var(--primary));
+    'primary-foreground':hsl(var(--primary-foreground));
+
+    secondary: hsl(var(--secondary));
+    'secondary-foreground':hsl(var(--secondary-foreground));
+
+    destructive: hsl(var(--destructive));
+    'destructive-foreground':hsl(var(--destructive-foreground));
+
+    muted: hsl(var(--muted));
+    'muted-foreground':hsl(var(--muted-foreground));
+
+    accent: hsl(var(--accent));
+    'accent-foreground':hsl(var(--accent-foreground));
+
+    popover: hsl(var(--popover));
+    'popover-foreground':hsl(var(--popover-foreground));
+
+    card: hsl(var(--card));
+    'card-foreground':hsl(var(--card-foreground));
+  }
+}
+
+/* 基本レイアウト調整 */
+html {
+  scroll-behavior: smooth;
+  cursor: none;
+}
+
 body {
   overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
-  position: relative;
-  background-color: black;
-  color: white;
   cursor: none;
+  position: relative;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* カーソル非表示 */
+a,
+button,
+input,
+textarea,
+select {
+  cursor: none;
+}
+
+/* セクションスタイル */
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.panel {
+  width: 100%;
+  height: 100vh;
+}
+
+.pin-spacer {
+  height: 200vh;
+}
+
+/* モバイル用カーソル表示 */
+@media (max-width: 768px) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    cursor: auto;
+  }
+}
+
+/* モバイル用テキスト調整 */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+  }
+
+  .panel-title {
+    font-size: 2rem !important;
+  }
+
+  .panel-desc {
+    font-size: 1rem !important;
+  }
 }
